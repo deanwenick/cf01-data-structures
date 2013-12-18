@@ -12,28 +12,6 @@ var BST = function() {
 
 };
 
-BST.prototype.contains = function(searchValue) {
-    if (this.root === null) {
-        throw new Error("This tree has no root. Nothing to see here.");
-    } else {
-        temp = this.root;
-        //is the new data the same as root, if not work our way through tree
-        //checking left and right in turn
-        while (temp.data != searchValue) {
-
-            if (!temp.right && !temp.left) {
-                    return false;
-                }
-            if (searchValue < temp.data) {
-                temp = temp.left;
-            } else {
-                temp = temp.right;
-            }
-        }
-        return true;
-    }   
-};
-
 //add new data to tree, where data is in an array
 //loop through array checking each side of each node 
 BST.prototype.insert = function(data) {
@@ -102,8 +80,34 @@ BST.prototype.insert = function(data) {
             if (tempHeight > this.height) {
             this.height = tempHeight;
             }
-        }        
-    }   
+        }
+    }
 };
 
+//find value in tree
+//not finished
+BST.prototype.contains = function(searchValue) {
+    if (this.root === null) {
+        throw new Error("This tree has no root. Nothing to see here.");
+    } else {
+        temp = this.root;
+        //check if new data the same as root, if not work our way through tree
+        //checking left and right in turn
+        while (temp.data != searchValue) {
+
+            if (!temp.right && !temp.left) {
+                    return false;
+                }
+            if (searchValue < temp.data) {
+                temp = temp.left;
+            } else {
+                temp = temp.right;
+            }
+        }
+        return true;
+    }
+};
+
+
+//test
 var tree = new BST();
