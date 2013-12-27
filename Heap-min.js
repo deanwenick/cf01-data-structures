@@ -32,7 +32,7 @@ HeapMin.prototype.peak = function() {
 };
 
 //test
-var hm = new HeamMin();
+var hm = new HeapMin();
 hm.insert(1);
 hm.insert(2);
 hm.insert(3);
