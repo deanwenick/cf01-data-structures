@@ -26,10 +26,14 @@ HeapMin.prototype.insert = function(data) {
 
         //keep checking that new data is less than previous node
         while (data < this.heap[Math.floor(tempIndex/2)]) {
+            
+            //swap with parent
             this.heap[tempIndex] = this.heap[Math.floor(tempIndex/2)];
             this.heap[Math.floor(tempIndex/2)] = data;
+
             tempIndex = this.heap.indexOf(data);
         }
+
     }
 };
 
@@ -51,13 +55,13 @@ HeapMin.prototype.peak = function() {
 //test
 //very primitive functionality
 var hm = new HeapMin();
-hm.insert(1);
+hm.insert(11);
 hm.insert(2);
-hm.insert(3);
+hm.insert(33);
 hm.insert(4);
-hm.insert(5);
+hm.insert(55);
 hm.insert(6);
-hm.insert(7);
+hm.insert(3);
 
 console.log(hm.heap);
 console.log(hm.peak());
