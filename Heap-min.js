@@ -1,5 +1,10 @@
 //min heap data structure in JavaScript
 //each node will be smaller value than parent node
+//keep smallest node in position 1, not 0, like array (eloquent JavaScript)
+/*
+** @TODO most of insert function should be moved to seperate 
+** function to be reused in remove
+*/
 
 //create 'class'
 var HeapMin = function() {
@@ -10,6 +15,7 @@ var HeapMin = function() {
 //if new heap put data in first position
 HeapMin.prototype.insert = function(data) {
     if (this.heap.length === 0) {
+        this.heap[0] = null;//see above
         this.heap[1] = data;
 
     } else {
@@ -27,11 +33,23 @@ HeapMin.prototype.insert = function(data) {
     }
 };
 
+//remove function
+HeapMin.prototype.remove = function(data) {
+    //find position of data in heap
+    //check nodes below and move them up
+};
+
+//find size of heap
+HeapMin.prototype.size = function() {
+    return this.heap.length;
+};
+
 HeapMin.prototype.peak = function() {
     return this.heap[1];
 };
 
 //test
+//very primitive functionality
 var hm = new HeapMin();
 hm.insert(1);
 hm.insert(2);
