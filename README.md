@@ -7,7 +7,7 @@ done in Code Fellows JS Bootcamp 2013
 - binary search tree
 - linked list
 - double linked list
-- heap - min heap
+- heap - min-heap
 - hash table
 - stack
 - queue
