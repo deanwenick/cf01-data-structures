@@ -1,6 +1,8 @@
 //min heap data structure in JavaScript
 //each node will be smaller value than parent node
 //keep smallest node in position 1, not 0, like array (eloquent JavaScript)
+//array based min heap, child nodes are calculated at array indices 2n and 2n+1
+//parent nodes calculated by index/2
 /*
 ** @TODO most of insert function should be moved to seperate 
 ** function to be reused in remove
@@ -33,14 +35,25 @@ HeapMin.prototype.insert = function(data) {
 
             tempIndex = this.heap.indexOf(data);
         }
-
     }
 };
 
-//remove function
+//remove function - remove any node
 HeapMin.prototype.remove = function(data) {
     //find position of data in heap
     //check nodes below and move them up
+
+    var dataPos = this.heap.indexOf(data);
+    var parentPos = Math.floor(dataPos/2);
+
+    console.log("targetData is %s", this.heap[parentPos]);
+
+    if (this.heap[parentPos] < this.heap[dataPos]) {
+        console.log(data + " is more than " + this.heap[parentPos]);
+    } else {
+        console.log("%s is less than %s", data, this.heap[parentPos]);
+    }
+
 };
 
 //find size of heap
